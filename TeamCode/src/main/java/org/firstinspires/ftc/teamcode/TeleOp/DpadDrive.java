@@ -13,7 +13,6 @@ import org.firstinspires.ftc.teamcode.Hardware.EncoderFunction;
 @TeleOp(name="Dpad Driving", group="LinearOpmode")
 public class DpadDrive extends LinearOpMode {
 
-
     EncoderFunction robot = new EncoderFunction();
 
     private ElapsedTime runtime = new ElapsedTime();
@@ -21,16 +20,7 @@ public class DpadDrive extends LinearOpMode {
     private DcMotor BackHorizontal = null;
     private DcMotor LeftVertical = null;
     private DcMotor RightVertical = null;
-
     private DcMotor LinearSlide = null;
-
-
-    // @Override
-    // public void init(){
-
-    //    robot.init(HardwareMap);
-    // }
-
 
     @Override
     public void runOpMode() {
@@ -44,7 +34,6 @@ public class DpadDrive extends LinearOpMode {
         BackHorizontal = hardwareMap.get(DcMotor.class, "BackHorizontal");
         LeftVertical = hardwareMap.get(DcMotor.class, "LeftVertical");
         RightVertical = hardwareMap.get(DcMotor.class, "RightVertical");
-        //fix this
 
         FrontHorizontal.setDirection(DcMotorSimple.Direction.FORWARD);
         BackHorizontal.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -58,26 +47,17 @@ public class DpadDrive extends LinearOpMode {
 
             if (gamepad1.dpad_right) {
                 robot.moveByTileUnit(1, FrontHorizontal, BackHorizontal, 400);
-            }
-
-            else if (gamepad1.dpad_left) {
+            } else if (gamepad1.dpad_left) {
                 robot.moveByTileUnit(-1, FrontHorizontal, BackHorizontal, 400);
-            }
-
-            else if (gamepad1.dpad_up) {
+            } else if (gamepad1.dpad_up) {
                 robot.moveByTileUnit(1, LeftVertical, RightVertical, 400);
-            }
-
-            else if (gamepad1.dpad_down) {
+            } else if (gamepad1.dpad_down) {
                 robot.moveByTileUnit(-1, FrontHorizontal, BackHorizontal, 400);
-            }
-
-            else {
+            } else {
                 FrontHorizontal.setPower(0);
                 BackHorizontal.setPower(0);
                 LeftVertical.setPower(0);
                 RightVertical.setPower(0);
-
             }
         }
     }
